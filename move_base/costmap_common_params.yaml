@@ -1,0 +1,18 @@
+#--- costmap_common_params.yaml (LIMO) ---------------------------
+obstacle_range: 3.0            # [m] max LiDAR range to fuse as obstacles
+raytrace_range: 3.5            # [m] clear freespace up to this range
+
+robot_radius: 0.17             # LIMO ≈ 340 mm wide → 0.17 m radius
+# If you prefer a rectangle:
+# footprint: [[0.22, 0.15], [0.22,-0.15], [-0.22,-0.15], [-0.22,0.15]]
+
+inflation_radius: 0.30         # grow obstacles for comfortable clearance
+transform_tolerance: 0.3       # [s] TF latency tolerated
+update_frequency: 5.0          # Hz both costmaps inherit unless overridden
+publish_frequency: 1.0
+
+plugins:
+  - {name: static_layer, type: "costmap_2d::StaticLayer"}
+  - {name: obstacle_layer, type: "costmap_2d::VoxelLayer"}
+  - {name: inflation_layer, type: "costmap_2d::InflationLayer"}
+

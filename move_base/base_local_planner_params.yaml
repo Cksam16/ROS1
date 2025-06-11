@@ -1,0 +1,26 @@
+#--- base_local_planner_params.yaml -------------------------------
+controller_frequency: 5.0
+
+# Robot limits -----------------------------------------------------
+max_vel_x:          0.4
+min_vel_x:          0.05
+max_vel_theta:      1.0
+min_vel_theta:     -1.0
+acc_lim_x:          1.5
+acc_lim_theta:      2.0
+
+# Goal tolerances --------------------------------------------------
+xy_goal_tolerance:  0.10
+yaw_goal_tolerance: 0.10
+
+# DWA sampling window ---------------------------------------------
+sim_time:           1.0     # seconds into the future to roll out
+vx_samples:         20
+vtheta_samples:     40
+dwa:                true
+
+# Cost biases ------------------------------------------------------
+pdist_scale:        0.8     # stick to global path
+gdist_scale:        0.4     # how hard we chase the goal
+occdist_scale:      0.1     # obstacle avoidance weight
+

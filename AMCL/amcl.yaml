@@ -1,0 +1,50 @@
+#--- amcl.yaml for LIMO (ROS1 Melodic) ----------------------------
+
+# Coordinate frames
+odom_frame_id: odom
+base_frame_id: base_link
+global_frame_id: map
+
+# Laser sensor model
+laser_min_range: 0.15       # [m] ignore noisy close returns
+laser_max_range: 12.0       # [m] lidar max
+
+# Motion model noise - odometry-based (tune to your robot)
+odom_alpha1: 0.1            # rot -> rot noise
+odom_alpha2: 0.1            # rot -> trans noise
+odom_alpha3: 0.1            # trans -> trans noise
+odom_alpha4: 0.1            # trans -> rot noise
+
+# Update thresholds (how much movement before resampling)
+update_min_d: 0.2           # [m]
+update_min_a: 0.2           # [rad]
+
+# Particle filter settings
+min_particles: 200
+max_particles: 2000
+kld_err: 0.05               # convergence threshold
+kld_z: 0.99
+
+# Laser measurement model
+laser_z_hit: 0.95
+laser_sigma_hit: 0.2        # [m] measurement noise
+laser_z_rand: 0.05
+
+# Initial pose estimate (can be set from RViz instead)
+initial_pose_x: 0.0
+initial_pose_y: 0.0
+initial_pose_a: 0.0
+
+# TF latency tolerance
+transform_tolerance: 0.1    # [s]
+<!-- Costmaps -->
+<rosparam file="$(find limo_nav)/param/costmap_common_params.yaml" command="load"/>
+<rosparam file="$(find limo_nav)/param/global_costmap_params.yaml" command="load" ns="global_costmap"/>
+<rosparam file="$(find limo_nav)/param/local_costmap_params.yaml"  command="load" ns="local_costmap"/>
+
+<!-- Local planner -->
+<rosparam file="$(find limo_nav)/param/base_local_planner_params.yaml" command="load"/>
+
+<!-- Start move_base -->
+<node pkg="move_base" type="move_base" name="move_base" output="screen"/>
+

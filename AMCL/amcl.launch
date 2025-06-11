@@ -1,0 +1,10 @@
+<launch>
+  <!-- Load AMCL parameters -->
+  <rosparam file="$(find limo_nav)/param/amcl.yaml" command="load"/>
+
+  <!-- Start the AMCL node -->
+  <node pkg="amcl" type="amcl" name="amcl" output="screen">
+    <remap from="scan" to="/scan"/>
+  </node>
+</launch>
+

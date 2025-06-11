@@ -1,0 +1,14 @@
+<launch>
+  <!-- Load shared costmap parameters -->
+  <rosparam file="$(find limo_nav)/param/costmap_common_params.yaml" command="load"/>
+  <rosparam file="$(find limo_nav)/param/global_costmap_params.yaml" command="load" ns="global_costmap"/>
+  <rosparam file="$(find limo_nav)/param/local_costmap_params.yaml"  command="load" ns="local_costmap"/>
+
+  <!-- Load local planner parameters -->
+  <rosparam file="$(find limo_nav)/param/base_local_planner_params.yaml" command="load"/>
+
+  <!-- Start move_base node -->
+  <node pkg="move_base" type="move_base" name="move_base" output="screen"/>
+</launch>
+
+
