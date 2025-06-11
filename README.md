@@ -4,7 +4,7 @@ This repository demonstrates an implementation of **autonomous robot navigation*
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 
 This project simulates an indoor robot navigating a static environment using:
 - **AMCL (Adaptive Monte Carlo Localization)** for probabilistic localization based on a 2D map
@@ -12,7 +12,7 @@ This project simulates an indoor robot navigating a static environment using:
 
 ---
 
-## 🗂️ Folder Structure
+## Folder Structure
 
 ```
 ROS1/
@@ -31,9 +31,9 @@ ROS1/
 
 ---
 
-## 🚀 File-Level Features and Roles
+## File-Level Features and Roles
 
-### 📂 AMCL/
+### AMCL/
 
 - **`amcl.launch`**  
   Launches the AMCL node with parameters defined in `amcl.yaml`. This node uses a particle filter to localize the robot on a pre-built map.
@@ -43,12 +43,12 @@ ROS1/
 
 ---
 
-### 📂 move_base/
+### move_base/
 
 - **`move_base.launch`**  
   Launches the `move_base` node and loads configuration files required for global and local planning, costmaps, and planner behaviors.
 
-#### 📁 move_base/config/
+#### move_base/config/
 
 - **`base_local_planner_params.yaml`**  
   Defines parameters for the local planner (e.g., DWA or Trajectory Rollout), including maximum velocities, acceleration limits, and goal tolerances.
@@ -64,7 +64,7 @@ ROS1/
 
 ---
 
-## 🛠️ Requirements
+## Requirements
 
 - **Ubuntu 18.04**
 - **ROS1 Melodic**
@@ -73,7 +73,7 @@ ROS1/
 
 ---
 
-## ⚙️ Installation
+## Installation
 
 ```bash
 cd ~/catkin_ws/src
@@ -85,7 +85,7 @@ source devel/setup.bash
 
 ---
 
-## 🔧 Usage
+## Usage
 
 1. **Launch AMCL for localization**:
 
