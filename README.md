@@ -10,6 +10,8 @@ This project simulates an indoor robot navigating a static environment using:
 - **AMCL (Adaptive Monte Carlo Localization)** for probabilistic localization based on a 2D map
 - **move_base** for global path planning and local obstacle avoidance using costmaps
 
+---
+
 ## 🗂️ Folder Structure
 
 ```
