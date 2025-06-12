@@ -1,5 +1,3 @@
-#--- amcl.yaml for LIMO (ROS1 Melodic) ----------------------------
-
 # Coordinate frames
 odom_frame_id: odom
 base_frame_id: base_link
