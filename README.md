@@ -1,6 +1,6 @@
-# ROS1 Navigation Stack – AMCL & move_base
+# ROS1 Navigation Stack
 
-This repository demonstrates an implementation of **autonomous robot navigation** using the ROS1 Navigation Stack in **ROS1 Melodic** on **Ubuntu 18.04**. It integrates localization and path planning with configuration and tuning of key navigation components: `amcl` and `move_base`.
+This repository demonstrates an implementation of **autonomous robot navigation** using the ROS1 Navigation Stack in **ROS1 Melodic** on **Ubuntu 18.04**. It integrates localization and path planning with configuration and tuning of key navigation components: `gmapping`, `amcl` and `move_base`.
 
 ---
 
