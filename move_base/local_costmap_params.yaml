@@ -1,4 +1,3 @@
-#--- local_costmap_params.yaml ------------------------------------
 global_frame: odom
 robot_base_frame: base_link
 
