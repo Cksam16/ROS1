@@ -1,0 +1,22 @@
+<launch>
+  <!-- Start the GMapping SLAM node -->
+  <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+
+    <!-- Coordinate frames used in TF -->
+    <param name="base_frame" value="base_link"/>    <!-- The robot’s main body -->
+    <param name="odom_frame" value="odom"/>         <!-- The source of odometry (LIMO publishes this) -->
+
+    <!-- How often to update the map [seconds] -->
+    <param name="map_update_interval" value="2.0"/>
+
+    <!-- Max usable lidar range [m]. LIMO lidar often sees up to 12 m -->
+    <param name="maxUrange" value="12.0"/>
+
+    <!-- Minimum scan-matching score to add a scan to the map.
+         Higher = fewer bad poses accepted, but may skip some scans. -->
+    <param name="minimumScore" value="100"/>
+
+    <!-- Remap the laser topic (expected as /scan by GMapping) -->
+    <remap from="scan" to="/scan"/>
+  </node>
+</launch>
