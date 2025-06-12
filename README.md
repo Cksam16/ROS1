@@ -7,6 +7,7 @@ This repository demonstrates an implementation of **autonomous robot navigation*
 ## Project Overview
 
 This project simulates an indoor robot navigating a static environment using:
+- **GMapping** to build a 2D occupancy grid map using SLAM
 - **AMCL (Adaptive Monte Carlo Localization)** for probabilistic localization based on a 2D map
 - **move_base** for global path planning and local obstacle avoidance using costmaps
 
@@ -16,6 +17,8 @@ This project simulates an indoor robot navigating a static environment using:
 
 ```
 ROS1/
+├── gmapping/
+│ └── gmapping.launch
 ├── AMCL/
 │   ├── amcl.launch
 │   └── amcl.yaml
@@ -32,6 +35,13 @@ ROS1/
 ---
 
 ## File-Level Features and Roles
+
+### GMapping/
+
+- **`gmapping.launch`**  
+  Launches the `slam_gmapping` node for real-time SLAM (Simultaneous Localization and Mapping). It subscribes to laser scans and odometry to generate a 2D occupancy grid map of the environment. Useful in mapping unknown spaces before localization.
+
+---
 
 ### AMCL/
 
@@ -87,13 +97,19 @@ source devel/setup.bash
 
 ## Usage
 
-1. **Launch AMCL for localization**:
+1. **Launch GMapping to build a map**:
+
+```bash
+roslaunch gmapping gmapping.launch
+```
+
+2. **Launch AMCL for localization**:
 
 ```bash
 roslaunch AMCL amcl.launch
 ```
 
-2. **Launch move_base for path planning**:
+3. **Launch move_base for path planning**:
 
 ```bash
 roslaunch move_base move_base.launch
